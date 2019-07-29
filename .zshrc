@@ -76,7 +76,7 @@ setopt hist_ignore_all_dups
 alias docker rmc='docker rm $(docker ps -a -q)'
 alias docker rmi='docker rmi -f $(docker images -q -a -f dangling=true)'
 alias ll='ls -al'
-alias pb ='pbcopy'
+alias pb='pbcopy'
 
 plugins=(git)
 
