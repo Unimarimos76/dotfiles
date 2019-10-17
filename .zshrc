@@ -21,8 +21,7 @@ if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
 export WORKON_HOME=$HOME/.virtualenvs
 source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init -)"
+#eval "$(plenv init -)"
 #
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - )"
@@ -43,16 +42,16 @@ zle -N peco-select-history
 
 bindkey '^r' peco-select-history
 
-# vcs_infoロード    
-autoload -Uz vcs_info    
-# PROMPT変数内で変数参照する    
-setopt prompt_subst    
+# vcs_infoロード
+autoload -Uz vcs_info
+# PROMPT変数内で変数参照する
+setopt prompt_subst
 
-# vcsの表示    
-zstyle ':vcs_info:*' formats '%s][* %F{green}%b%f'    
-zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'    
-# プロンプト表示直前にvcs_info呼び出し    
-precmd() { vcs_info }   
+# vcsの表示
+zstyle ':vcs_info:*' formats '%s][* %F{green}%b%f'
+zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
+# プロンプト表示直前にvcs_info呼び出
+precmd() { vcs_info }
 
 PS1='[${vcs_info_msg_0_}]:%~/%f=>'
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -77,6 +76,10 @@ alias docker rmc='docker rm $(docker ps -a -q)'
 alias docker rmi='docker rmi -f $(docker images -q -a -f dangling=true)'
 alias ll='ls -al'
 alias pb='pbcopy'
+#git alias 
+#alias ga='git add'
+#alias gc='git commit -m'
+#alias gp='git push'
 
 plugins=(git)
 
@@ -87,3 +90,4 @@ eval "$(direnv hook zsh)"
 # }}}
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
+export PATH="$HOME/.plenv/bin:$PATH"
