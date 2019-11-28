@@ -76,6 +76,7 @@ alias docker rmc='docker rm $(docker ps -a -q)'
 alias docker rmi='docker rmi -f $(docker images -q -a -f dangling=true)'
 alias ll='ls -al'
 alias pb='pbcopy'
+alias hb='hub browse'
 #git alias 
 #alias ga='git add'
 #alias gc='git commit -m'
@@ -91,3 +92,6 @@ eval "$(direnv hook zsh)"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 export PATH="$HOME/.plenv/bin:$PATH"
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
