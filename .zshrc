@@ -77,6 +77,7 @@ alias docker rmi='docker rmi -f $(docker images -q -a -f dangling=true)'
 alias ll='ls -al'
 alias pb='pbcopy'
 alias hb='hub browse'
+alias glp='git log --oneline --graph --all'
 #git alias 
 #alias ga='git add'
 #alias gc='git commit -m'
