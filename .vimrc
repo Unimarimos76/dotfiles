@@ -1,8 +1,16 @@
-"横の番号をフル"
 set number
-"#かっこの補完"
-"ステータス表示"
 set laststatus=2
 set showmode
-"シンタックスハイライト"
+set cursorline
 syntax enable
+set hlsearch
+set smartindent
+"status line"
+
+set statusline=%F
+set statusline+=%m
+
+set statusline+=%=
+set statusline+=[ENC=%{&fileencoding}]
+set statusline+=[LOW=%l/%L]
+
