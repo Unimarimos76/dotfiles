@@ -21,26 +21,20 @@ if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
 export WORKON_HOME=$HOME/.virtualenvs
 source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
-#eval "$(plenv init -)"
-#
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - )"
 
-# search history < peco >
-function peco-select-history() {
-	local tac
-		if which tac > /dev/null; then
-			tac="tac"
-		else
-			tac="tail -r"
-				fi
-				BUFFER=$(\history -n 1 | eval $tac | peco)
-				CURSOR=$#BUFFER
-				zle clear-screen
-}
-zle -N peco-select-history
 
-bindkey '^r' peco-select-history
+function peco-history-selection() {
+    #BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    BUFFER=`history -n 1 | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    #zle reset-prompt
+    zle -R -c
+}
+
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 # vcs_infoロード
 autoload -Uz vcs_info
@@ -72,18 +66,21 @@ setopt ignore_eof
 setopt share_history
 setopt hist_ignore_all_dups
 
-alias docker rmc='docker rm $(docker ps -a -q)'
-alias docker rmi='docker rmi -f $(docker images -q -a -f dangling=true)'
+#alias drmc='docker rm $(docker ps -a -q)'
+#alias drmi='docker rmi -f $(docker images -q -a -f dangling=true)'
 alias ll='ls -al'
 alias pb='pbcopy'
 alias hb='hub browse'
 alias glp='git log --oneline --graph --all'
-#git alias 
-#alias ga='git add'
-#alias gc='git commit -m'
-#alias gp='git push'
+alias vim="nvim"
+alias drm='docker rm $(docker ps -aqf "status=exited") 2> /dev/null'
+alias drmi='docker rmi $(docker images -aqf "dangling=true") 2> /dev/null'
 
-plugins=(git)
+
+plugins=(git zsh-autosuggestions)
+
+autoload -U compinit && compinit -u
+
 
 export EDITOR='vim'
 
@@ -96,3 +93,7 @@ export PATH="$HOME/.plenv/bin:$PATH"
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH="$PATH:/Users/<username>/.composer/vendor/bin"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
