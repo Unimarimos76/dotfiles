@@ -12,6 +12,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt hist_ignore_dups
+setopt inc_append_history
+setopt share_history
 
 # virtualenv の設定
 # ~/.zshrc に以下の設定を追加。
