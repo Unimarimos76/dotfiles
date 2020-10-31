@@ -1,0 +1,1 @@
+/Users/uni880/.config/nvim/init.vim

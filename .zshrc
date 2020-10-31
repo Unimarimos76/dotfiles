@@ -49,7 +49,12 @@ zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
 # プロンプト表示直前にvcs_info呼び出
 precmd() { vcs_info }
 
-PS1='[${vcs_info_msg_0_}]:%~/%f=>'
+PROMPT='[${vcs_info_msg_0_}]:$("dir_name")/%f=>'
+
+dir_name() {
+   echo "$PWD" | sed -E 's|/(.)[^/]*|/\1|g'
+}
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$HOME/local/go/bin:$HOME/go/bin:$PATH
@@ -99,3 +104,4 @@ export PATH="$PATH:/Users/<username>/.composer/vendor/bin"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/php@7.2/bin:$PATH"
 export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
+export PATH="/Users/uni880/.pyenv/versions/anaconda3-5.2.0/lib/python3.6/site-packages:$PATH"
