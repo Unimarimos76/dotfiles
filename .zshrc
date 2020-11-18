@@ -105,3 +105,6 @@ export PATH="$PATH:/Users/<username>/.composer/vendor/bin"
 export PATH="/usr/local/opt/php@7.2/bin:$PATH"
 export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 export PATH="/Users/uni880/.pyenv/versions/anaconda3-5.2.0/lib/python3.6/site-packages:$PATH"
+
+export LANG=ja_JP.UTF-8
+
