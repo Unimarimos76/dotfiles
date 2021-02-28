@@ -1,3 +1,5 @@
+
+"プラグイン関連
 call plug#begin("~/.vim/plugged/")
   " Theme
   Plug 'dracula/vim'
@@ -20,6 +22,7 @@ call plug#begin("~/.vim/plugged/")
   Plug 'kassio/neoterm'
 call plug#end()
 
+"syntaxとかtheme関連
 " Enable theming support
 if (has("termguicolors"))
  set termguicolors
