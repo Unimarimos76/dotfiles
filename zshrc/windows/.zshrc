@@ -1,4 +1,4 @@
-source ~/.oh-my-zshrc 
+source ~/.oh-my-zsh 
 # PATHの設定(homebrew+virtualwrapper)
 export PATH=/opt/homebrew/bin:/sbin:/bin:/usr/bin:/usr/texbin:$PATH
 # 文字コードの設定
@@ -23,8 +23,8 @@ if [ -f /opt/homebrew/bin/virtualenvwrapper.sh ]; then
 export WORKON_HOME=$HOME/.virtualenvs
 source /opt/homebrew/bin/virtualenvwrapper.sh
 fi
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - )"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init - )"
 
 
 function peco-history-selection() {
@@ -60,7 +60,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$HOME/local/go/bin:$HOME/go/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#eval "$(pyenv init -)"
 export PATH="/path/to/anaconda/bin:$PATH"
 export CLICOLOR=1
 export LSCOLORS=DxGxcxdxCxegedabagacad
@@ -93,9 +93,9 @@ autoload -U compinit && compinit -u
 
 export EDITOR='vim'
 
-# direnv {{{
-eval "$(direnv hook zsh)"
-# }}}
+## direnv {{{
+#eval "$(direnv hook zsh)"
+## }}}
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 export PATH="$HOME/.plenv/bin:$PATH"
