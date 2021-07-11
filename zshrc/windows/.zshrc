@@ -79,10 +79,13 @@ alias ll='ls -al'
 alias pb='pbcopy'
 alias hb='hub browse'
 alias glp='git log --oneline --graph --all'
-alias vim="nvim"
+#alias vim="nvim"
 alias drm='docker rm $(docker ps -aqf "status=exited") 2> /dev/null'
 alias drmi='docker rmi $(docker images -aqf "dangling=true") 2> /dev/null'
 alias st='~/dotfiles/scripts/start-tmux.sh'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
 
 
 
